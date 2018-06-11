@@ -1,0 +1,65 @@
+body{
+    background-color: black;
+}
+
+#gamingWeatherMessage{
+    position: relative;
+    top: 50%;
+    transform: translateY(50%);
+        color: white;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 700%;
+}
+
+#city{
+    position: relative;
+    top: 50%;
+    transform: translateY(130%);
+    color: white;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 400%;
+
+}
+
+
+#cities{
+    position: relative;
+    top: 50%;
+    transform: translateY(500%);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 200%;
+}
+
+#addCity{
+    position: relative;
+    top: 50%;
+    transform: translateY(800%);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.addCityClass{
+    color: black;
+}
+
+.smallemptyspace{
+    height: 7px;
+}
+
+#cityEvent{
+    cursor: pointer;
+}

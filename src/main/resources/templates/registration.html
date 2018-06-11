@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <title>Gaming Weather</title>
+</head>
+<body>
+
+<h1>REGISTER NEW USER</h1>
+<div th:if="${ifOccupiedMessage}" th:text="${ifOccupiedMessage}"></div>
+
+<div th:if="${wrongCity}" th:text="${wrongCity}"></div>
+
+<form action="/registration" method="post" th:object="${GWUser}">
+
+    USERNAME <input type="text" th:field="*{username}" required="required"/>
+    PASSWORD <input type="password" th:field="*{password}" required="required"/>
+    EMAIL <input type="text" th:field="*{email}" required="required"/>
+    CITY <input type="text" name="city" required="required"/>
+    <input type="submit" value="Submit"/>
+
+    <p th:if="${#fields.hasErrors('username')}">USERNAME MUST BE BETWEEN 2 AND 60 CHARACTERS</p>
+
+    <p th:if="${#fields.hasErrors('password')}">PASSWORD MUST BE BETWEEN 2 AND 60 CHARACTERS</p>
+
+    <p th:if="${#fields.hasErrors('email')}">INVALID EMAIL ADDRESS</p>
+
+</form>
+
+<a href="/login">BACK TO LOGIN</a>
+
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

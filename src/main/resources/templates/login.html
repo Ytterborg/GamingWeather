@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--<link rel="stylesheet" href="/css/gamingWeatherStyle.css">-->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Gaming Weather</title>
+</head>
+<body>
+<h1>Welcome to Gaming Weather</h1>
+
+<div th:if="${param.error}">
+    INVALID USERNAME AND PASSWORD
+</div>
+
+<div th:if="${param.logout}">
+    YOU HAVE BEEN LOGGED OUT
+</div>
+
+<div th:if="${greeting}" th:text="${greeting}"></div>
+
+<form th:action="@{/login}" method="post">
+    <div><label> USERNAME: <input type="text" name="username"/> </label></div>
+
+    <div><label> PASSWORD: <input type="password" name="password"/> </label></div>
+
+    <div><input type="submit" value="Sign In"/></div>
+
+</form>
+<a href="/registration">REGISTER NEW USER</a>
+
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gaming Weather</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/gamingWeatherStyle.css" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Is it Gaming Weather?</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <div class="smallemptyspace"></div>
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Logout" class="btn btn-secondary"/>
+                    </form>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Menu
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Register</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="gamingWeatherMessage">
+</div>
+
+<div id="city">
+</div>
+
+<form id="addCity">
+    NEW CITY <input class="addCityClass" id="writtenCity" type="text" autofocus>
+    <input id="addCityButton" class="addCityClass" type="submit" value="Add City">
+</form>
+
+<div id="cities">
+    <ul id="cityEvent" th:each="city : ${cities}">
+        <li th:id="${city.getCityName()}" th:text="${city.getCityName()}"
+            th:onclick="${'changeCity('+city.getCityName()+')'}">
+        </li>
+    </ul>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/gamingWeatherScript.js"></script>
+
+</body>
+
+</html>
